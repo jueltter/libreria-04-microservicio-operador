@@ -1,0 +1,28 @@
+server:
+  port: 8083
+eureka:
+  client:
+    service-url:
+      default-zone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+    hostname: libreria-04-microservicio-operador
+spring:
+  application:
+    name: libreria-04-microservicio-operador
+  datasource:
+    url: jdbc:h2:mem:microservicio-operador;Mode=MySQL
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+    defer-datasource-initialization: true
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      settings:
+        web-allow-others: true
+
+getLibro:
+  url: http://libreria-03-microservicio-buscador/libros/%s
